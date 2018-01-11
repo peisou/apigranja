@@ -1,0 +1,32 @@
+/*================================================================================
+	Item Name: Robust - Responsive Admin Theme
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+/*TODO estilos no cargan en segundas paginas, probando a importar manualmente los css*/
+@import url("animate.css");
+@import url("core");
+@import url("pages");
+@import url("plugins");
+@import url("app.css");
+@import url("app.min.css");
+@import url("bootstrap.css");
+@import url("bootstrap-extended.css");
+@import url("bootstrap-extended.min.css");
+@import url("bootstrap.min.css");
+@import url("colors.css");
+@import url("colors.min.css");
+@import url("ionicons.min.css");
+@import url("jquery.fancybox.css");
+@import url("main.css");
+@import url("owl.carousel.css");
+@import url("owl.theme.css");
+@import url("responsive.css");
+@import url("slider.css");
