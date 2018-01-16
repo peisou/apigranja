@@ -44,19 +44,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('cellphone') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Numero Teléfono:</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Teléfono" name="cellphone" value="{{ old('cellphone') }}">
-
-                                    @if ($errors->has('cellphone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cellphone') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
+                            
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Email:</label>
@@ -72,20 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('date_in') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Fecha de Ingreso:</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Fecha de inicio" id="date-in" name="date_in" value="{{ old('date_in') }}">
-
-                                    @if ($errors->has('date_in'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('date_in') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
+                            
                             <div class="form-group{{ $errors->has('area_id') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Departamento:</label>
 

@@ -16,11 +16,11 @@ class CreateVacationTable extends Migration
     {
         Schema::create('vacations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('days_taken');
-            $table->string('reason');
-            $table->string('observations');
             $table->string('type');
-            $table->date('date_init');
+            $table->string('date_from');
+            $table->date('date_to');
+            $table->string('observations');
+            $table->integer('aceptado');
             $table->integer('worker_id')->unsigned();
             $table->foreign('worker_id')->references('id')->on('workers')->onDelete('cascade');
             $table->timestamps();

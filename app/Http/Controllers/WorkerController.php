@@ -40,8 +40,7 @@ class WorkerController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'cellphone' => 'required',
-            'date_in' => 'required',
+            //'date_in' => 'required',
             'position' => 'required',
             'email' => 'required',
             'area_id' => 'required'
@@ -49,9 +48,9 @@ class WorkerController extends Controller
 
         $worker = new Worker();
         $worker->name = $request['name'];
-        $worker->cellphone = $request['cellphone'];
-        $worker->date_from = date("Y-m-d", strtotime($request['date_from']));
-        $worker->date_to = 0;
+        //$worker->cellphone = $request['cellphone'];
+        //$worker->date_from = date("Y-m-d", strtotime($request['date_from']));
+        //$worker->date_to = 0;
         $worker->position = $request['position'];
         $worker->email = $request['email'];
         $worker->state = '1';

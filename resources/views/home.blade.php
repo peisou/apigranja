@@ -28,21 +28,21 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div id='external-events'>
-                                            <h4>Draggable Events</h4>
+                                            <h4>Eventos Arrastrables</h4>
                                             <div class="fc-events-container">
-                                                <div class='fc-event' data-color='#2D95BF'>All Day Event</div>
-                                                <div class='fc-event' data-color='#48CFAE'>Long Event</div>
+                                                <div class='fc-event' data-color='#2D95BF'>Evento todo el día</div>
+                                                <div class='fc-event' data-color='#48CFAE'>Evento Largo</div>
                                                 <div class='fc-event' data-color='#50C1E9'>Meeting</div>
-                                                <div class='fc-event' data-color='#FB6E52'>Birthday party</div>
-                                                <div class='fc-event' data-color='#ED5564'>Lunch</div>
-                                                <div class='fc-event' data-color='#F8B195'>Conference Meeting</div>
-                                                <div class='fc-event' data-color='#6C5B7B'>Party</div>
-                                                <div class='fc-event' data-color='#355C7D'>Happy Hour</div>
-                                                <div class='fc-event' data-color='#547A8B'>Dance party</div>
-                                                <div class='fc-event' data-color='#3EACAB'>Dinner</div>
+                                                <div class='fc-event' data-color='#FB6E52'>Cumpleaños</div>
+                                                <div class='fc-event' data-color='#ED5564'>Comida</div>
+                                                <div class='fc-event' data-color='#F8B195'>Conferencia</div>
+                                                <div class='fc-event' data-color='#6C5B7B'>Fiesta</div>
+                                                <div class='fc-event' data-color='#355C7D'>Hora Feliz</div>
+                                                <div class='fc-event' data-color='#547A8B'>Fiesta de Baile</div>
+                                                <div class='fc-event' data-color='#3EACAB'>Cena</div>
                                                 <p>
                                                     <input type='checkbox' id='drop-remove' />
-                                                    <label for='drop-remove'>remove after drop</label>
+                                                    <label for='drop-remove'>Remover después de mover</label>
                                                 </p>
                                             </div>
                                         </div>
@@ -74,36 +74,26 @@ $(document).ready(function(){
         eventLimit: true, // allow "more" link when too many events
         events: [
             {
-                title: 'All Day Event',
+                title: 'Evento todo el día',
                 start: '2016-06-01'
             },
             {
-                title: 'Long Event',
+                title: 'Evento Largo',
                 start: '2016-06-07',
                 end: '2016-06-10'
             },
             {
                 id: 999,
-                title: 'Repeating Event',
+                title: 'Meeting',
                 start: '2016-06-09T16:00:00'
             },
             {
-                id: 999,
-                title: 'Repeating Event',
-                start: '2016-06-16T16:00:00'
-            },
-            {
-                title: 'Conference',
+                title: 'Conferencia',
                 start: '2016-06-11',
                 end: '2016-06-13'
             },
             {
-                title: 'Meeting',
-                start: '2016-06-12T10:30:00',
-                end: '2016-06-12T12:30:00'
-            },
-            {
-                title: 'Lunch',
+                title: 'Comida',
                 start: '2016-06-12T12:00:00'
             },
             {
@@ -111,21 +101,16 @@ $(document).ready(function(){
                 start: '2016-06-12T14:30:00'
             },
             {
-                title: 'Happy Hour',
+                title: 'Hora Feliz',
                 start: '2016-06-12T17:30:00'
             },
             {
-                title: 'Dinner',
+                title: 'Cena',
                 start: '2016-06-12T20:00:00'
             },
             {
-                title: 'Birthday Party',
+                title: 'Cumpleaños',
                 start: '2016-06-13T07:00:00'
-            },
-            {
-                title: 'Click for Google',
-                url: 'http://google.com/',
-                start: '2016-06-28'
             }
         ]
     });

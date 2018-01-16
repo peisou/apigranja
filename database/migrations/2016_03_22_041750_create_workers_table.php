@@ -21,7 +21,7 @@ class CreateWorkersTable extends Migration
             $table->date('date_out');
             $table->string('position');
             $table->string('email')->unique();
-            //$table->smallInteger('state')->default('0');
+            $table->smallInteger('state')->default('0');
             $table->text('reason_retirement')->nullable();
             $table->timestamps();
             
