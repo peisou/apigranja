@@ -172,7 +172,7 @@ Header Section Start
                             <a href="#" class="dropdown-item"><i class="icon-clipboard2"></i> Tareas</a>
                             <a href="{{url('/home')}}" class="dropdown-item"><i class="icon-calendar5"></i> Calender</a>
                             <div class="dropdown-divider"></div>
-                            <a href="logout" class="dropdown-item"><i class="icon-power3"></i>Salir</a>
+                            <a href="{{url('/logout')}}" class="dropdown-item"><i class="icon-power3"></i>Salir</a>
                         </div>
                     </li>
                 </ul>
@@ -198,8 +198,6 @@ Header Section ENDS
             
             <li class=" nav-item"><a href="{{url('/home')}}"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Gestión Vacaciones</span></a>
                 <ul class="menu-content">
-
-                  
 
                     <li class="active"><a href="" data-i18n="nav.dash.ecommerce" class="menu-item">Departamentos</a>
                         <ul class="menu-content">
@@ -228,8 +226,6 @@ Header Section ENDS
                         </ul>
                     </li>
 
-                   
-
                     <li><a href="{{ url('/vacation/create/'.Crypt::encrypt(Auth::user()->id).'/'.Crypt::encrypt(Auth::user()->name)) }}" data-i18n="nav.dash.crm" class="menu-item">Solicitar Vacaciones</a></li>
 
                    
@@ -255,9 +251,8 @@ Header Section ENDS
         </div>
       </div><!--==============================    Footer Menu Section END    ============================================= -->
 </div><!--==============================    Fin Menu Section END    ================================================== -->
-
 <!-- / main menu-->
-<!--@section('calendar')-->
+
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 @yield ('content')
 <footer class="footer footer-static footer-light navbar-border">
@@ -292,7 +287,6 @@ Header Section ENDS
 <script src="{{ URL::asset('vendors/js/charts/echarts/chart/line.js')}}" type="text/javascript"></script>
 <script src="{{ URL::asset('vendors/js/charts/echarts/chart/bar.js')}}" type="text/javascript"></script>
 <script src="{{ URL::asset('vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
-
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN ROBUST JS-->
 <script src="{{ URL::asset('js/core/app-menu.js')}}" type="text/javascript"></script>
@@ -302,5 +296,4 @@ Header Section ENDS
 <script src="{{ URL::asset('js/scripts/pages/dashboard-ecommerce.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 </body>
-
 </html>

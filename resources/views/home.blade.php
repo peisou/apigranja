@@ -116,5 +116,18 @@ $(document).ready(function(){
     });
     });
 </script>
+<script src="{{ URL::asset('vendors/js/extensions/drag-drop.js')}}"></script>
 
+<script type="text/javascript">
+        function dragMe(teamValue){
+            dragula([document.getElementById('fc-event'), document.getElementById('fc-default')], {
+                copy: function (el, source) {
+                    return source === document.getElementById('nameroll')
+                },
+                accepts: function (el, target) {
+                    return target !== document.getElementById('nameroll')
+                }
+            });
+        }
+</script>
 @stop

@@ -88,7 +88,7 @@
                                     <td>
                                         <!-- Single button -->
                                         <div class="btn-group">
-                                            <a href="{{ url('/vacation/create/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}" class="btn btn-outline-primary"><i class="icon-calendar5"></i></a> 
+                                            <a href="{{ url('/vacation/creat/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}" class="btn btn-outline-primary"><i class="icon-calendar5"></i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -10,6 +10,7 @@ namespace App\Helpers;
 use App\Vacation;
 
 class MyHelper {
+    //Metodo que calcula los dias de vacaciones
     public static function vacationDays($date){
         $date_current = new \DateTime();
         $date_init =  new \DateTime($date);

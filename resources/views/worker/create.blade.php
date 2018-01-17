@@ -44,8 +44,6 @@
                                 </div>
                             </div>
 
-                            
-
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Email:</label>
 
@@ -60,7 +58,6 @@
                                 </div>
                             </div>
 
-                            
                             <div class="form-group{{ $errors->has('area_id') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Departamento:</label>
 

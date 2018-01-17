@@ -61,34 +61,36 @@
                         </div>
                         <div class="card-body collapse in">
                             <div class="card-block">
-        <form action="login" method="post">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">   
-
-          <div class="form-group has-feedback">
-
-                <input type="email" class="form-control" name="email" >
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-         
-          <div class="row">
-            
-
-            
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
-            </div><!-- /.col -->
-          </div>
-        </form>
- </div>
+                                <form class="form-horizontal form-simple" action="login" method ="post" >
+                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">   
+                                        <fieldset class="form-group position-relative has-icon-left mb-0">
+                                            <input type="email" class="form-control form-control-lg input-lg" name ="email" id="email" placeholder="Your Email" required>
+                                                <div class="form-control-position">
+                                                    <i class="icon-head"></i>
+                                                </div>
+                                        </fieldset>
+                                        <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="password" class="form-control form-control-lg input-lg" name="password" id="password" placeholder="Enter Password" required>
+                                                <div class="form-control-position">
+                                                    <i class="icon-key3"></i>
+                                                </div>
+                                        </fieldset>
+                                        <fieldset class="form-group row">
+                                            <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
+                                                <fieldset>
+                                                    <input type="checkbox" id="remember-me" class="chk-remember">
+                                                        <label for="remember-me"> Remember Me</label>
+                                                </fieldset>
+                                            </div>        
+                                        </fieldset>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
+                                </form>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="">
-                            <p class="float-sm-left text-xs-center m-0"><a href="{{ url('password.request') }}" class="card-link">Recover password</a></p>
-                                <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="{{ url('/register') }}" class="card-link">Sign Up</a></p>
+                            <p class="float-sm-left text-xs-center m-0"><a href="{{ url('password.request') }}" class="card-link">Olvidaste tu contraseña?</a></p>
+                                <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="{{ url('/register') }}" class="card-link">Registrate</a></p>
                             </div>
                         </div>
                     </div>

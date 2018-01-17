@@ -59,7 +59,7 @@ Route::group(['middleware' => 'usuarioAdmin'], function () {
     Route::get('/area/create', 'AreaController@create');
     Route::post('/area/store', 'AreaController@store');
     
-    Route::get('/vacation/create/{id_worker}/{name_worker}', 'VacationController@create');
+    Route::get('/vacation/creat/{id_worker}/{name_worker}', 'VacationController@create');
     Route::post('/vacation/store', 'VacationController@store');
     Route::get('/vacation/calendar', 'VacationController@index');
     //Route::get('/vacation/create', 'VacationController@index');
