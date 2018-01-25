@@ -68,6 +68,12 @@ Route::group(['middleware' => 'usuarioAdmin'], function () {
 
 });
 
+//Rutas Calendario
+Route::get('cargaEventos{id?}','CalendarController@index');
+Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
+Route::post('actualizaEventos','CalendarController@update');
+Route::post('eliminaEvento','CalendarController@delete');
+
 //rutas accessibles solo para el usuario standard
 Route::group(['middleware' => 'usuarioStandard'], function () {	
     
