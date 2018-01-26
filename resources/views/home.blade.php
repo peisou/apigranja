@@ -27,12 +27,11 @@
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        
-                                        <div id='external-events'>
+                                        <div id='ternal-events'>
                                             <h4>Eventos Arrastrables</h4>
 
-                                            <div class="fc-events-container">
-                                                <div class='fc-event bg-red'> Fechas No Disponibles</div>
+                                            <div id='external-events' class="fc-events-container">
+                                                <div id='fc-event' class='fc-event bg-red'> Fechas No Disponibles</div>
                                                 <div class='fc-event bg-orange' >Consultar Fecha</div>
                                                 <div class='fc-event bg-green' >Fecha disponible</div>
                                                 <div class='fc-event' data-color='#FB6E52'>Cumpleaños</div>
@@ -48,6 +47,29 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Crear evento</h3>
+            </div>
+            <div class="box-body">
+              <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                
+              </div>
+              <!-- /btn-group -->
+              <div class="input-group">
+                <input id="new-event" type="text" class="form-control" placeholder="Titulo de evento">
+
+                <div class="input-group-btn">
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Agregar</button>
+                </div>
+                <!-- /btn-group -->
+              </div><br/><br/>
+              <!-- /input-group -->
+              {!! Form::open(['route' => ['guardaEventos'], 'method' => 'POST', 'id' =>'form-calendario']) !!}
+              {!! Form::close() !!}
+            </div>
+          </div>
                                     </div>
                                     <div class="col-md-9">
                                         <div id='fc-default'></div>
@@ -61,17 +83,15 @@
         </section>
     </div>
 </div>
-<!-- // Full calendar advance example section end -->
+<!-- // Full calendar advance section end -->
 @stop
 @section('javascript')
-
-
-    <script src="{{ URL::asset('vendors/js/charts/morris.min.js')}}" type="text/javascript"></script>
-    <script src="{{ URL::asset('vendors/js/charts/chart.min.js')}}" type="text/javascript"></script>
-    <script src="{{ URL::asset('vendors/js/charts/jvector/jquery-jvectormap-2.0.3.min.js')}}" type="text/javascript"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+ <!-- jQuery UI 1.11.4 -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
 <script>
     /**$(function () {
@@ -139,7 +159,7 @@
       });
     }
 
-    ini_events($('#fc-event div.fc-events-container'));
+    ini_events($('#fc-event div.external-events'));
 
     /* initialize the calendar
      -----------------------------------------------------------------*/
@@ -313,7 +333,7 @@
 
       dayClick: function(date, jsEvent, view) {
             if (view.name === "month") {
-                $('#fc-dfault').fullCalendar('gotoDate', date);
+                $('#fc-default').fullCalendar('gotoDate', date);
                 $('#fc-default').fullCalendar('changeView', 'agendaDay');
             }
       }

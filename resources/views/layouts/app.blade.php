@@ -260,6 +260,8 @@ Header Section ENDS
 </footer>
 @yield('javascript')
 <!-- BEGIN VENDOR JS-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>  $("#content-wrapper").css("min-height","2000px"); </script>
 <!--<script src="{{ URL::asset('js/core/libraries/jquery.min.js')}}" type="text/javascript"></script>-->
 <script src="{{ URL::asset('vendors/js/ui/tether.min.js')}}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/core/libraries/bootstrap.min.js')}}" type="text/javascript"></script>
