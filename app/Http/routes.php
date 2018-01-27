@@ -18,7 +18,7 @@
         else
             return redirect('/vacation/calendar');
     else
-        return redirect('/login');
+        return redirect('/home');
 });
 
 //rutas accessibles slo si el usuario no se ha logueado

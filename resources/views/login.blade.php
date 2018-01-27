@@ -83,7 +83,7 @@
                                                 </fieldset>
                                             </div>        
                                         </fieldset>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
+                                    <button href="{{ url('login') }}" type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
                                 </form>
                             </div>
                         </div>

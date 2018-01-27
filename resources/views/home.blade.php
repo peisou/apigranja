@@ -27,20 +27,20 @@
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div id='ternal-events'>
+                                        <div >
                                             <h4>Eventos Arrastrables</h4>
 
                                             <div id='external-events' class="fc-events-container">
-                                                <div id='fc-event' class='fc-event bg-red'> Fechas No Disponibles</div>
-                                                <div class='fc-event bg-orange' >Consultar Fecha</div>
-                                                <div class='fc-event bg-green' >Fecha disponible</div>
-                                                <div class='fc-event' data-color='#FB6E52'>Cumpleaños</div>
-                                                <div class='fc-event' data-color='#ED5564'>Comida</div>
-                                                <div class='fc-event' data-color='#F8B195'>Conferencia</div>
-                                                <div class='fc-event' data-color='#6C5B7B'>Fiesta</div>
-                                                <div class='fc-event' data-color='#355C7D'>Meeting</div>
-                                                <div class='fc-event' data-color='#547A8B'>Fiesta de Baile</div>
-                                                <div class='fc-event' data-color='#3EACAB'>Cena</div>
+                                                <div id='fc-event' class='fc-event bg-red external-events'> Fechas No Disponibles</div>
+                                                <div class='fc-event bg-orange external-events' >Consultar Fecha</div>
+                                                <div class='fc-event bg-green external-events' >Fecha disponible</div>
+                                                <div class='fc-event external-events' data-color='#FB6E52'>Cumpleaños</div>
+                                                <div class='fc-event external-events' data-color='#ED5564'>Comida</div>
+                                                <div class='fc-event external-events' data-color='#F8B195'>Conferencia</div>
+                                                <div class='fc-event external-events' data-color='#6C5B7B'>Fiesta</div>
+                                                <div class='fc-event external-events' data-color='#355C7D'>Meeting</div>
+                                                <div class='fc-event external-events' data-color='#547A8B'>Fiesta de Baile</div>
+                                                <div class='fc-event external-events' data-color='#3EACAB'>Cena</div>
                                                 <p>
                                                     <input type='checkbox' id='drop-remove' />
                                                     <label for='drop-remove'>Remover después de mover</label>
@@ -48,28 +48,28 @@
                                             </div>
                                         </div>
                                         <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Crear evento</h3>
-            </div>
-            <div class="box-body">
-              <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                
-              </div>
-              <!-- /btn-group -->
-              <div class="input-group">
-                <input id="new-event" type="text" class="form-control" placeholder="Titulo de evento">
+                                          <div class="box-header with-border">
+                                            <h3 class="box-title">Crear evento</h3>
+                                          </div>
+                                          <div class="box-body">
+                                            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                              <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                              
+                                            </div>
+                                            <!-- /btn-group -->
+                                            <div class="input-group">
+                                              <input id="new-event" type="text" class="form-control" placeholder="Titulo de evento">
 
-                <div class="input-group-btn">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Agregar</button>
-                </div>
-                <!-- /btn-group -->
-              </div><br/><br/>
-              <!-- /input-group -->
-              {!! Form::open(['route' => ['guardaEventos'], 'method' => 'POST', 'id' =>'form-calendario']) !!}
-              {!! Form::close() !!}
-            </div>
-          </div>
+                                              <div class="input-group-btn">
+                                                <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Agregar</button>
+                                              </div>
+                                              <!-- /btn-group -->
+                                            </div><br/><br/>
+                                            <!-- /input-group -->
+                                            {!! Form::open(['route' => ['guardaEventos'], 'method' => 'POST', 'id' =>'form-calendario']) !!}
+                                            {!! Form::close() !!}
+                                          </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-9">
                                         <div id='fc-default'></div>
@@ -89,52 +89,10 @@
  <!-- jQuery UI 1.11.4 -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
-    <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
 <script>
-    /**$(function () {
-//inicialimos los eventos
-/* initialize the external events
-     -----------------------------------------------------------------
-    function ini_events(ele) {
-      ele.each(function () {
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
-        };
-
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject);
-
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex: 1070,
-          revert: true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
-        });
-
-      });
-    }
-    ini_events($('#fc-event div.fc-events-container'));
-//Inicializamos el calendario:    
-
-    $('#fc-default').fullCalendar({
-        defaultDate: '2016-06-12',
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-
-        monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-        monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
-        dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-        dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
-        
-    });
-
-});
-**/
+   
   $(function () {
     /* initialize the external events
      -----------------------------------------------------------------*/
@@ -155,11 +113,11 @@
           revert: true, // will cause the event to go back to its
           revertDuration: 0  //  original position after the drag
         });
-
       });
     }
 
-    ini_events($('#fc-event div.external-events'));
+    ini_events($('#external-event div.external-events'));
+    ini_events($('.fc-event'));
 
     /* initialize the calendar
      -----------------------------------------------------------------*/
@@ -169,6 +127,7 @@
         m = date.getMonth(),
         y = date.getFullYear();
   //while(reload==false){
+
     $('#fc-default').fullCalendar({
       header: {
         left: 'prev,next today',
@@ -360,7 +319,7 @@
 
       //Create events
       var event = $("<div />");
-      event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
+      event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("fc-event");
       event.html(val);
       $('#external-events').prepend(event);
 
@@ -371,6 +330,7 @@
       $("#new-event").val("");
     });
   });
+
 </script>
 </script>
 
