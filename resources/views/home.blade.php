@@ -34,13 +34,13 @@
                                                 <div id='fc-event' class='fc-event bg-red external-events'> Fechas No Disponibles</div>
                                                 <div class='fc-event bg-orange external-events' >Consultar Fecha</div>
                                                 <div class='fc-event bg-green external-events' >Fecha disponible</div>
-                                                <div class='fc-event external-events' data-color='#FB6E52'>Cumpleaños</div>
-                                                <div class='fc-event external-events' data-color='#ED5564'>Comida</div>
-                                                <div class='fc-event external-events' data-color='#F8B195'>Conferencia</div>
-                                                <div class='fc-event external-events' data-color='#6C5B7B'>Fiesta</div>
-                                                <div class='fc-event external-events' data-color='#355C7D'>Meeting</div>
-                                                <div class='fc-event external-events' data-color='#547A8B'>Fiesta de Baile</div>
-                                                <div class='fc-event external-events' data-color='#3EACAB'>Cena</div>
+                                                <div class='fc-event external-events'>Cumpleaños</div>
+                                                <div class='fc-event external-events'>Comida</div>
+                                                <div class='fc-event external-events'>Conferencia</div>
+                                                <div class='fc-event external-events'>Fiesta</div>
+                                                <div class='fc-event external-events'>Meeting</div>
+                                                <div class='fc-event external-events'>Fiesta de Baile</div>
+                                                <div class='fc-event external-events'>Cena</div>
                                                 <p>
                                                     <input type='checkbox' id='drop-remove' />
                                                     <label for='drop-remove'>Remover después de mover</label>

@@ -74,7 +74,7 @@ class AuthController extends Controller
     //registro   
     protected function getRegister()
     {
-        return view("registro");
+        return view("register");
     }
 
     protected function postRegister(Request $request)

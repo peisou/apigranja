@@ -50,7 +50,7 @@ class WorkerController extends Controller
         $worker->name = $request['name'];
         //$worker->cellphone = $request['cellphone'];
         //$worker->date_from = date("Y-m-d", strtotime($request['date_from']));
-        //$worker->date_to = 0;
+        //$worker->date_to = date("Y-m-d", strtotime($request['date_from']));
         $worker->position = $request['position'];
         $worker->email = $request['email'];
         $worker->state = '1';
@@ -107,13 +107,13 @@ class WorkerController extends Controller
         ]);
 
         $worker = Worker::find($request['id_worker']);
-        $worker->name = $request['name'];
-        $worker->cellphone = $request['cellphone'];
-        $worker->date_from = date("Y-m-d", strtotime($request['date_in']));
-        $worker->date_to = 0;
-        $worker->position = $request['position'];
-        $worker->email = $request['email'];
-        $worker->area_id = $request['area_id'];
+        $worker-> name = $request['name'];
+        $worker-> cellphone = $request['cellphone'];
+        $worker-> date_from = date("Y-m-d", strtotime($request['date_in']));
+        $worker-> date_to = 0;
+        $worker-> position = $request['position'];
+        $worker-> email = $request['email'];
+        $worker-> area_id = $request['area_id'];
         $worker->save();
 
         return redirect('/home');

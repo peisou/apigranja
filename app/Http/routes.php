@@ -59,13 +59,16 @@ Route::group(['middleware' => 'usuarioAdmin'], function () {
     Route::get('/area/create', 'AreaController@create');
     Route::post('/area/store', 'AreaController@store');
     
+    //Vacaciones
     Route::get('/vacation/creat/{id_worker}/{name_worker}', 'VacationController@create');
     Route::post('/vacation/store', 'VacationController@store');
     Route::get('/vacation/calendar', 'VacationController@index');
-    //Route::get('/vacation/create', 'VacationController@index');
+    //Aprobar vacaciones
     Route::get('/vacation/request', 'VacationController@solicitudes');
-    Route::get('/vacation/update', 'VacationController@update');
-
+    Route::put('vacation/update', 'VacationController@update');
+    Route::post('/vacation/update', 'VacationController@update');
+    
+    Route::post('/vacation/deny', 'VacationController@deny');
 });
 
 //Rutas Calendario

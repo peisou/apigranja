@@ -99,7 +99,7 @@
                                             <i class="icon-key3"></i>
                                         </div>
                                     </fieldset>
-                                    <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="icon-unlock2"></i>Registrar</button>
+                                    <!--<button type="submit" class="btn btn-primary btn-block btn-flat"><i class="icon-unlock2"></i>Registrar</button>-->
         </form>
                             </div>
                             <p class="text-xs-center">Already have an account ? <a href="{{ url('/login') }}" class="card-link">Login</a></p>

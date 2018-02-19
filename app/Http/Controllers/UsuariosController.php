@@ -37,7 +37,7 @@ class UsuariosController extends Controller {
 		$this->middleware('auth');
 	}
 
-
+/**
    public function form_nuevo_usuario()
 	{
         
@@ -300,7 +300,7 @@ class UsuariosController extends Controller {
 		{            
             return view("mensajes.msj_rechazado")->with("msj","el usuario con ese id no existe o fue borrado");  
 		}
-	}
+	}**/
 
 
 

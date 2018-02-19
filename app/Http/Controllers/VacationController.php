@@ -48,7 +48,7 @@ class VacationController extends Controller
         //sendmail
         $data = request()->all();
         Mail::send("correo.solicitud", $data, function($message) use ($data){
-            $message->to('dpazolopez@gmail.com','David')
+            $message->to('david.pazo@globalretail.es','David')
             ->subject("Solicitud de vacación");
         });
 
@@ -71,32 +71,31 @@ class VacationController extends Controller
 
     public function update(Request $request)
     {
-         $this->validate($request, [
-            'aceptado' => 'required',
-        ]);
-         //TODO comprobar funcionamiento
-        $vacation = new Vacation();
-        $vacation-> aceptado = $request['aceptado'];
-
+        $vacation=new Vacation();
+        $id = $request->get('id');
+        $vacation=Vacation::find($request['id']);
+        
+        $vacation-> aceptado = '1';
         $vacation->save();
-
-        Mail::send("correo.solicitud", $data, function($message) use ($data){
+        
+        /**Mail::send("correo.solicitud", $data, function($message) use ($data){
             $message->to('email','user')
             ->subject("Respuesta a su solicitud");
-        });
+        });*/
 
-        return redirect('/home');
+        return redirect('/vacation/request');
 
     }
 
     public function solicitudes()
     {
         $vacations =  \DB::table('vacations')
-            ->select('workers.name','vacations.type','vacations.date_from','vacations.date_to','vacations.observations','vacations.aceptado')
+            ->select('workers.name','vacations.id' ,'vacations.type','vacations.date_from','vacations.date_to','vacations.observations','vacations.aceptado')
             ->join('workers','workers.id','=','vacations.worker_id')
             ->where(['vacations.aceptado' => '0'])
             ->get();
 
-        return view('vacation.showvac', ['vacations' => $vacations]);              
+        return view('vacation.aprobarvac', ['vacations' => $vacations]);              
     }
+    
 }

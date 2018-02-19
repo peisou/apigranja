@@ -90,7 +90,7 @@
                         <div class="card-footer">
                             <div class="">
                             <p class="float-sm-left text-xs-center m-0"><a href="{{ url('password.request') }}" class="card-link">Olvidaste tu contraseña?</a></p>
-                                <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="{{ url('/register') }}" class="card-link">Registrate</a></p>
+                                <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="{{url('/register')}}" class="card-link">Registrate</a></p>
                             </div>
                         </div>
                     </div>

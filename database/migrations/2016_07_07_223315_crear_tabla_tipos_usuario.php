@@ -27,6 +27,6 @@ class CrearTablaTiposUsuario extends Migration
      */
     public function down()
     {
-         Schema::drop('pais');
+        
     }
 }
