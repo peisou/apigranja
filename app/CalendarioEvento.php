@@ -10,4 +10,7 @@ class CalendarioEvento extends Model
     protected $fillable = ['fechaIni','fechaFin','todoeldia','lugar','color','titulo'];
     protected $hidden = ['id'];
 
+    public function vacation(){
+     $this->belongsTo('App\Vacation');
+	}
 }

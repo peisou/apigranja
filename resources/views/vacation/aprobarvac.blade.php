@@ -9,12 +9,12 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a>
             </li>
-            <li class="breadcrumb-item active">Tabla Empleados
+            <li class="breadcrumb-item active">Solicitudes Vacaciones
             </li>
           </ol>
         </div>
         <div class="content-header-left col-md-6 col-xs-12">
-          <!--<h3 class="content-header-title mb-0">AutoFill Datatable</h3>-->
+          
           <p class="text-muted mb-0">Listado de trabajadores que solicitan vacaciones.</p>
         </div>
         <div class="content-header-right col-md-6 col-xs-12">
