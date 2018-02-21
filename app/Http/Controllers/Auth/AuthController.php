@@ -27,7 +27,7 @@ class AuthController extends Controller
     |
     */
 
-    protected $redirctTo ='/';
+    protected $redirctTo ='/home';
 
     /**
      * Create a new authentication controller instance.
@@ -39,7 +39,7 @@ class AuthController extends Controller
         $this->auth = $auth;
         $this->middleware('guest', ['except' => 'getLogout']);
     }
-
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,6 +50,7 @@ class AuthController extends Controller
     //login
     protected function getLogin()
     {
+
         return view("login");
     }
 
@@ -63,12 +64,12 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
-        { 
-            $usuarioactual=\Auth::user();
+        {   
+           $usuarioactual=\Auth::user();
            return view('home')->with("usuario",  $usuarioactual);
+        }else{
+            return back()->with('error','Credenciales incorrectas');
         }
-
-        return "credenciales incorrectas";
     }
 
     //registro   
@@ -107,5 +108,18 @@ class AuthController extends Controller
 
         return redirect('login');
     }
+protected function sendFailedLoginResponse(Request $request)
+{
+    if ($request->ajax()) {
+    return response()->json([
+        'error' => Lang::get('auth.failed')
+    ], 401);
+    }
 
+    return redirect()->back()
+    ->withInput($request->only($this->username(), 'remember'))
+    ->withErrors([
+        $this->username() => Lang::get('auth.failed'),
+    ]);
+} 
 }

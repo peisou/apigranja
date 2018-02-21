@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="fonts/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/sliders/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/extensions/pace.css">
-    
+     
     <link rel="stylesheet" type="text/css" href="vendors/css/forms/icheck/icheck.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/forms/icheck/custom.css">
     <!-- END VENDOR CSS -->
@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="css/core/menu/menu-types/horizontal-menu.css">
     <link rel="stylesheet" type="text/css" href="css/core/menu/menu-types/vertical-overlay-menu.css">
     <link rel="stylesheet" type="text/css" href="css/pages/login-register.css">
+
     <!-- END Page Level CSS -->
     <!-- BEGIN Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -61,6 +62,7 @@
                         </div>
                         <div class="card-body collapse in">
                             <div class="card-block">
+                               
                                 <form class="form-horizontal form-simple" action="login" method ="post" >
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">   
                                         <fieldset class="form-group position-relative has-icon-left mb-0">
@@ -68,12 +70,22 @@
                                                 <div class="form-control-position">
                                                     <i class="icon-head"></i>
                                                 </div>
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </fieldset>
                                         <fieldset class="form-group position-relative has-icon-left">
                                             <input type="password" class="form-control form-control-lg input-lg" name="password" id="password" placeholder="Enter Password" required>
                                                 <div class="form-control-position">
                                                     <i class="icon-key3"></i>
                                                 </div>
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                                       <strong>{{ $errors->first('password') }}</strong>
+                                                    </span>
+                                                @endif
                                         </fieldset>
                                         <fieldset class="form-group row">
                                             <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
@@ -82,28 +94,29 @@
                                                         <label for="remember-me"> Remember Me</label>
                                                 </fieldset>
                                             </div>        
-                                        </fieldset>
-                                    <button href="{{ url('login') }}" type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
-                                </form>
+                                        </fieldset>   
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>                            
+                                    @include('errors.flash-message')                               
+                                </form>                                
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="">
+                        <!--<div class="card-footer">
+                            <div class="form-group">
                             <p class="float-sm-left text-xs-center m-0"><a href="{{ url('password.request') }}" class="card-link">Olvidaste tu contraseña?</a></p>
                                 <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="{{url('/register')}}" class="card-link">Registrate</a></p>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </div>
 </div>
 {{-- END CONTAINER --}}
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-<!-- BEGIN VENDOR JS -->
+<!-- BEGIN VENDOR JS
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 <script src="js/core/libraries/jquery.min.js" type="text/javascript"></script>
 <script src="vendors/js/ui/tether.min.js" type="text/javascript"></script>
 <script src="js/core/libraries/bootstrap.min.js" type="text/javascript"></script>

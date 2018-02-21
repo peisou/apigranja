@@ -18,7 +18,7 @@
                 <div class="panel panel-default">
                     <div align="center" class="panel-heading"><h3>Registrar vacacion a {{$name_worker}}</h3></div>
                     <div class="panel-body">
-                        
+                         @include('errors.flash-message')
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/vacation/store') }}">
                             {!! csrf_field() !!}
 
@@ -48,6 +48,7 @@
                                     @endif
                                 </div>
                             </div>
+                            
 <!--DATE-PICKER-->
                             <input type="hidden" name="worker_id" value="{{$id_worker}}"/>
                              <div class="col-sm-12 mb-1">
@@ -80,7 +81,6 @@ $(function() {
 });
 </script>
 <!-- FIN DATE-PICKER -->
-
                                     </div>        
                                 </div>
                             </div>
@@ -88,11 +88,15 @@ $(function() {
                                                 <button type="submit" class="btn btn-primary">
                                                     Registrar Vacacion
                                                 </button>
+
                                             </div>  
+
                         </form>
+
                     </div>
                 </div>
             </div>
+             
         </div>
     </div>
 
