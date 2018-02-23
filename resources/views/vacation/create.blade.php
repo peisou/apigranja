@@ -81,6 +81,7 @@ $(function() {
 });
 </script>
 <!-- FIN DATE-PICKER -->
+<input type="hidden" name="dep_id" id="inputdep_Id" class="form-control" value="{{old ('dep_id')}}">
                                     </div>        
                                 </div>
                             </div>

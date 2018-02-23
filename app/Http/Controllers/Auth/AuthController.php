@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 use App\User;
+use App\Worker;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Session;
+use \Crypt;
 
 class AuthController extends Controller
 {
@@ -60,13 +62,25 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        Session::put('tipoUsuario', 'admin');
+        //$id= \Auth::user();
+        //$wor = Worker::find($id);
+        
+        //Session::put('tipoUsuario', 'admin');
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {   
-           $usuarioactual=\Auth::user();
-           return view('home')->with("usuario",  $usuarioactual);
+            if(\Auth::user()->tipoUsuario == '2')
+            {
+               $usuarioactual=\Auth::user();
+               return view('vacation.create')
+               ->with("id_worker", \Auth::user()->id)
+               ->with("name_worker",  \Auth::user()->name);
+
+           }else{
+                $usuarioactual=\Auth::user();
+               return view('home')->with("usuario",  $usuarioactual);
+           }
         }else{
             return back()->with('error','Credenciales incorrectas');
         }

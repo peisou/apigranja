@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Mail;
 use App\Vacation;
+use App\Worker;
 use App\CalendarioEvento;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class VacationController extends Controller
             'datefilter' => 'required',
         ]);
 
-        $dep =\DB::table('workers')->select('workers.dep_id')
+        $dep =\DB::table('workers')->select('workers.area_id')
             ->where(['workers.id' => $request->worker_id])
             ->get(); 
             
@@ -56,7 +57,7 @@ class VacationController extends Controller
         $vacation -> worker_id = $request['worker_id'];
         $vacation -> type = $request['type'];
         $vacation -> observations = $request['observations'];
-        $vacation -> dep_id = $dep[0]->dep_id;
+        $vacation -> area_id = $dep[0]->area_id;
         //parse dates
         $date  = explode('-',$request['datefilter']);
         $dateFrom = date("y-m-d",strtotime( $date[0]));
@@ -68,17 +69,14 @@ class VacationController extends Controller
         $guardadas = \DB::table('vacations')
             ->where('date_from',  $dateFrom)
             ->where('date_to',  $dateTo)
-            ->where('dep_id',  $dep[0]->dep_id )
+            ->where('area_id',  $dep[0]->area_id )
             ->get();
 
         if(!$guardadas){
            $vacation->save();
-        //}
-        //if($vacation -> dep_id  != $guardadas -> dep_id 
-          //  && $vacation-> date_from != $guardadas -> date_from 
-            //&& $vacation-> date_to != $guardadas -> date_to){
-           //sendmail
+       
             $data = request()->all();
+           
             Mail::send("correo.solicitud", $data, function($message) use ($data){
             $message->to('david.pazo@globalretail.es','David')
              ->subject("Solicitud de vacación");
@@ -95,11 +93,12 @@ class VacationController extends Controller
     public function update(Request $request)
     {
         //aceptar las vacaciones
-        $vacation=new Vacation();
-        //$id = $request->get('id');
-        $vacation = Vacation::find($request['id']);
+        $id = $request->get('vacation_id');
+        $vacation = new Vacation();
+        $vacation = Vacation::find($id);
         $vacation-> aceptado = '1';
         $vacation->save();
+
         //añadir eventos al calendario
         $evento = new CalendarioEvento();
         $evento -> fechaIni = $vacation['date_from'];
@@ -109,11 +108,8 @@ class VacationController extends Controller
         $evento -> titulo = $vacation['type'];
         $vacation-> evento()->save($evento);
 
-        Mail::send("correo.solicitud", $data, function($message) use ($data){
-            $message->to('email','user')
-            ->subject("Respuesta a su solicitud");
-        });
-
+        
+        
         return redirect('/vacation/request');
 
     }
@@ -121,12 +117,30 @@ class VacationController extends Controller
     public function solicitudes()
     {
         $vacations =  \DB::table('vacations')
-            ->select('workers.name','vacations.id' ,'vacations.type','vacations.date_from','vacations.date_to','vacations.observations','vacations.aceptado','workers.dep_id')
+            ->select('workers.name','vacations.id' ,'vacations.type','vacations.date_from','vacations.date_to','vacations.observations','vacations.aceptado')
             ->join('workers','workers.id','=','vacations.worker_id')
             ->where(['vacations.aceptado' => '0'])
             ->get();
 
         return view('vacation.aprobarvac', ['vacations' => $vacations]);              
     }
-    
+   
+    public function delete(Request $request){
+        
+        //$vac = Vacation::find($request['vacation_id']);
+        //$res=Vacation::where('id',$vac)->delete();
+        Vacation::destroy($request['vacation_id']);
+        
+        return redirect()->back();
+   }
+    public function delSolicitudes()
+    {
+        $vacations =  \DB::table('vacations')
+            ->select('workers.name','vacations.id' ,'vacations.type','vacations.date_from','vacations.date_to','vacations.observations','vacations.aceptado')
+            ->join('workers','workers.id','=','vacations.worker_id')
+            ->where(['vacations.aceptado' => '0'])
+            ->get();
+
+        return view('vacation.deletevac', ['vacations' => $vacations]);              
+    }
 }

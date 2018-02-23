@@ -198,7 +198,7 @@ Header Section ENDS
             
             <li class=" nav-item"><a href="{{url('/home')}}"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Gestión Vacaciones</span></a>
                 <ul class="menu-content">
-
+                    @if( Auth::user()->tipoUsuario=='1')
                     <li class="active"><a href="" data-i18n="nav.dash.ecommerce" class="menu-item">Departamentos</a>
                         <ul class="menu-content">
                             <li><a href="{{url('/area/create')}}" data-i18n="nav.menu_levels.adddep" class="menu-item">Añadir Departamento</a>
@@ -221,14 +221,16 @@ Header Section ENDS
                         <ul class="menu-content">
                             <li><a href="{{url('/vacation/request')}}" data-i18n="nav.menu_levels.solic" class="menu-item">Ver solicitudes</a>
                             </li>
+                            <li><a href="{{url('/vacation/deny')}}" data-i18n="nav.menu_levels.solic" class="menu-item">Cancelar solicitudes</a>
+                            </li>
                             <li><a href="{{url('/vacation/calendar')}}" data-i18n="nav.menu_levels.solic" class="menu-item">Ver calendario</a>
                             </li>
                             
                         </ul>
                     </li>
-
+                    @else
                     <li><a href="{{ url('/vacation/create/'.Crypt::encrypt(Auth::user()->id).'/'.Crypt::encrypt(Auth::user()->name)) }}" data-i18n="nav.dash.crm" class="menu-item">Solicitar Vacaciones</a></li>
-
+                    @endif
                    
                 </ul>
             </li>

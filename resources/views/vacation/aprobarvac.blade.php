@@ -44,12 +44,7 @@
                   <div class="card-body collapse in">
                      <div class="card-block card-dashboard">
                     @if($vacations)
-                    <form action="{{url('vacation/update')}}" method="POST" role="form">
-                        {{csrf_field()}}
-                        {{method_field('PUT')}}
-                        <legend>Solicitudes Pendientes</legend>
-                        
-                        <table class="table table-striped table-bordered scrolling-dataTable">
+                    <table class="table table-striped table-bordered scrolling-dataTable">
                             <thead>
                               <tr>
                                <th>Nombre</th>
@@ -57,7 +52,7 @@
                                <th>Fecha inicio</th>
                                <th>Fecha fin</th>
                                <th>Observaciones</th>
-                               <th>Aprobar</th>
+                               
                               </tr>
                             </thead>
                             <tbody>
@@ -69,18 +64,21 @@
                               <td>{{ $vacation->date_from }}</td>
                               <td>{{ $vacation->date_to }}</td>
                               <td>{{ $vacation->observations }}</td>
-                                         
-                                <td>
-                                  <div role="group" aria-label="Button group with nested dropdown" class="btn-group float-md-right">
-                                    <input type="hidden" name="id" id="inputId" class="form-control" value="{{$vacation->id}}">
-                                    <button type="submit" class= "btn btn-primary"><i class="icon-bar-graph-2"></i></button>
-                                    <a href="{{url('/vacation/deny')}}" class="btn btn-outline-primary"><i class="icon-cross2"></i></a>
-                                  </div>                         
-                                </td>
                              </tr>   
                            @endforeach
                            </tbody>
                         </table>
+                    <form action="{{url('vacation/update')}}" method="POST" role="form">
+                        {{csrf_field()}}
+                        {{method_field('PUT')}}
+                        <legend>Solicitudes Pendientes</legend>
+                        <select name= "vacation_id" id="inputVacation_id" class = "form-control" required="required">
+                         @foreach ($vacations as $vacation)
+                         <option value="{{$vacation->id}}">{{$vacation->name}}</option>
+                         @endforeach
+                       </select>
+                        
+                        <button type="submit" class= "btn btn-primary"><i class="icon-bar-graph-2"></i>Aprobar Solicitud</button>
                     </form>
                     @else
                     <h2 class="text-center">No hay solicitudes pendientes</h2>
