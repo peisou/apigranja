@@ -67,7 +67,9 @@
 <script>
 $(function() {
   $('input[name="datefilter"]').daterangepicker({
+      changeMonth: true,
       autoUpdateInput: false,
+      stepmonth: 0,
       locale: {
           cancelLabel: 'Clear'
       }
@@ -78,6 +80,7 @@ $(function() {
   $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
       $(this).val('');
   });
+
 });
 </script>
 <!-- FIN DATE-PICKER -->
@@ -111,22 +114,5 @@ $(function() {
 </script>-->
 <!--<script src="{{ URL::asset('js/scripts/ui/jquery-ui/date-pickers.js')}}" type="text/javascript"></script>
 
-<script>
-    $('#datepicker1').datepicker({
-        format: "dd/mm/yyyy",
-        language: "es",
-        autoclose: true
-    });
-</script>
-<script>
-    $('#datepicker2').datepicker({
-        format: "dd/mm/yyyy",
-        language: "es",
-        autoclose: true
-    });
-</script>-->
-
-<!-- END PAGE VENDOR JS-->
-<!-- BEGIN ROBUST JS
 -->
 @stop

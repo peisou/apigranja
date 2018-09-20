@@ -62,17 +62,14 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        //$id= \Auth::user();
-        //$wor = Worker::find($id);
         
-        //Session::put('tipoUsuario', 'admin');
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {   
             if(\Auth::user()->tipoUsuario == '2')
             {
-               $usuarioactual=\Auth::user();
+               //$usuarioactual=\Auth::user();
                return view('vacation.create')
                ->with("id_worker", \Auth::user()->id)
                ->with("name_worker",  \Auth::user()->name);

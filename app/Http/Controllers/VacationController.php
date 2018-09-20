@@ -108,7 +108,7 @@ class VacationController extends Controller
         $evento -> titulo = $vacation['type'];
         $vacation-> evento()->save($evento);
 
-        
+        //TODO enviar email confirmacion
         
         return redirect('/vacation/request');
 
@@ -127,10 +127,7 @@ class VacationController extends Controller
    
     public function delete(Request $request){
         
-        //$vac = Vacation::find($request['vacation_id']);
-        //$res=Vacation::where('id',$vac)->delete();
         Vacation::destroy($request['vacation_id']);
-        
         return redirect()->back();
    }
     public function delSolicitudes()
